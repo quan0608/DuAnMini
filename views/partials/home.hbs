@@ -1,0 +1,164 @@
+<div
+  class="d-flex flex-column align-items-center justify-content-center"
+  
+>
+  
+    <div style="margin-top: 20px;">
+    <h1>Môn Học Nhập Môn ATTT<br></h1>
+    <h2>Dự án mini mật mã học <br></h2>
+    <span>
+      GV hướng dẫn: Ngô Hữu Dũng<br>
+      Thực hiện: Trần Việt Quân MSSV: 21087591
+    </span>
+  </div>
+  
+  
+  <span style="width: 800px; margin-top: 20px; font-size: 18px;">
+    <br>Chú thích: Vì em code bằng NodeJS nên phải khởi động sever mới chạy Input ra Output được ạ <br>
+              Bước 1: Lấy Source code về <br>
+              Bước 2: Vào visual chọn Teminal gõ lệnh: Node index.js <br>
+              (Trong trường hợp chưa có Nodejs có thể install <a style="text-decoration: none;" href="https://nodejs.org/en">nodejs.org</a> )
+              <br> Là chạy ngon lành ạ ^^
+  </span>
+
+  <h2 class="text-center m-2">Hash Function</h1>
+{{!-- Băm SHA 1 --}}
+  <form action="/sha1" method="POST" style="width: 800px;" class="mt-4">
+    <h4 class="mt-2">SHA 1</h4>
+    <span class="mt-3">
+      - SHA-1 (Secure Hash Algorithm 1) là hàm băm mật mã lấy đầu vào và tạo ra giá trị băm 160 bit
+      <br> 
+      - Đầu ra được hiển thị dưới dạng số thập lục phân, dài 40 chữ số
+      <br>
+      - SHA-1 là một hàm băm một chiều (one-way hash function), có nghĩa là chỉ có thể tạo ra giá trị <br>băm từ dữ liệu gốc và không thể tạo lại dữ liệu gốc từ giá trị băm đó.
+    </span>
+    <div class="input-group mb-3 mt-2">
+      <span class="input-group-text" id="basic-addon1">Input</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        name="text"
+        value="{{bam_sha1}}"
+      />
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="button-addon2"
+      >Gửi</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Output</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        value="{{sha1}}"
+        aria-label=""
+        aria-describedby="basic-addon1"
+      />
+    </div>
+  </form>
+  
+{{!-- MD5 --}}
+  <form action="/md5" method="POST" style="width: 800px;" class="mt-4">
+    <h4 class="mt-2">MD5</h4>
+    <span class="mt-3">
+      - MD5 (viết tắt của tiếng Anh Message-Digest algorithm 5, Thuật toán Tiêu hóa-tin nhắn 5) là một hàm băm mật mã học được sử dụng phổ biến với giá trị băm (hash) dài 128-bit
+      <br>
+      - Đầu ra được hiển thị dưới dạng số thập lục phân 32 ký tự
+      <br>
+      - MD5 là một thuật toán băm (hashing algorithm), nó không thể được giải mã ngược trở lại thành chuỗi ban đầu.
+    </span>
+    <div class="input-group mb-3 mt-2">
+      <span class="input-group-text" id="basic-addon1">Input</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        name="text"
+        value="{{bam_md5}}"
+      />
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="button-addon2"
+      >Gửi</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Output</span>
+      <input
+        type="text"
+        class="form-control"
+        value="{{md5}}"
+        aria-label=""
+        aria-describedby="basic-addon1"
+      />
+    </div>
+  </form>
+
+
+{{!-- Chữ ký số --}}
+  <form action="/signature" method="POST" style="width: 800px;" class="mt-4">
+    <h4 class="mt-2">Chữ ký số</h4>
+    <span>
+      - Chữ ký số được xây dựng dựa trên mật mã khóa công khai. <br>
+      - Nhằm bảo đảm vấn đề toàn vẹn dữ liệu, và chống sự chối bỏ <br>
+      trách nhiệm khi đã ký.
+    </span>
+    <div class="input-group mb-3 mt-2">
+      <span class="input-group-text" id="basic-addon1">Input</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder=""
+        name="text"
+        value="{{signature_message}}"
+      />
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="button-addon2"
+      >Gửi</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Output</span>
+      <textarea class="form-control" name="" id="" cols="30" rows="6" aria-label="" aria-describedby="basic-addon1">
+        {{signature}}
+      </textarea>
+    </div>
+  </form>
+   
+{{!-- Mã Hóa Chữ ký số --}}  
+  {{!-- <form action="/DecrySignature" method="POST" style="width: 800px;" class="mt-4">
+    <h4 class="mt-2">Mã hóa chữ ký số</h4>
+    
+    <div class="input-group mb-3 mt-2">
+      <span class="input-group-text" id="basic-addon1">Input</span>
+      <textarea class="form-control" name="text" id="" cols="30" rows="6">
+        {{DecrySignature_message}}
+      </textarea>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="button-addon2"
+      >Gửi</button>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Output</span>
+      <input
+        type="text"
+        class="form-control"
+        value="{{DecrySignature}}"
+        aria-label=""
+        aria-describedby="basic-addon1"
+      />
+    </div>
+  </form> --}}
+
+  <div style="padding-bottom: 5rem;"></div>
+</div>
